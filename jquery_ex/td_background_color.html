@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>jQuery Set Background Color</title>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script>
+  $(document).ready(function()
+  {
+      // Search for a specific ID of the td element
+      var targetId = "cell2"; // Replace with the desired ID
+      var targetTd = $("#" + targetId);
+
+      // Set the background color to yellow
+      targetTd.css("background-color", "yellow");
+  });
+</script>
+
+</head>
+
+<body>
+
+<table style="width: 80%; table-layout: fixed;" border="1">
+  <tr>
+    <td id="cell1">Cell 1</td>
+    <td id="cell2">Cell 2</td>
+    <td id="cell3">Cell 3</td>
+  </tr>
+  <tr>
+    <td id="cell4">Cell 4</td>
+    <td id="cell5">Cell 5</td>
+    <td id="cell6">Cell 6</td>
+  </tr>
+</table>
+
+</body>
+
+</html>

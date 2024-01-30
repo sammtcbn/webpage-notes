@@ -1,0 +1,47 @@
+<html>
+<head><title>test</title></head>
+<body>
+
+第一天是星期： <div id="firstdatediv" style="display: inline"></div>
+
+<br>
+
+最後一天日星期：<div id="lastdatediv" style="display: inline"></div>
+
+<script>
+  function getFirstDayOfWeek(year, month) {
+    // Months in JavaScript are zero-indexed, so we subtract 1
+    var firstDayOfMonth = new Date(year, month - 1, 1);
+
+    // getDay() method returns the day of the week, where 0 represents Sunday, 1 represents Monday, and so on
+    var dayOfWeek = firstDayOfMonth.getDay();
+
+    return dayOfWeek;
+  }
+
+function getLastDayOfWeek(year, month) {
+    // Months in JavaScript are zero-indexed, so we add 1 to the month
+    var lastDayOfMonth = new Date(year, month, 0);
+
+    // getDay() method returns the day of the week, where 0 represents Sunday, 1 represents Monday, and so on
+    var dayOfWeek = lastDayOfMonth.getDay();
+
+    return dayOfWeek;
+}
+
+</script>
+
+<script>
+  var year = 2024;
+  var month = 1; // 1 represents January
+
+  var firstDay = getFirstDayOfWeek(year, month);
+  document.getElementById("firstdatediv").innerHTML = firstDay
+
+  var lastDay = getLastDayOfWeek(year, month);
+  document.getElementById("lastdatediv").innerHTML = lastDay
+
+</script>
+
+</body>
+</html>
