@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>jQuery</title>
+<script src="http://code.jquery.com/jquery-2.2.3.min.js"></script>
+
+<script>
+  $(document).ready(function()
+  {
+      $("#myButton").click(function()
+      {
+          $("#helloWorldDiv").html("Hello world");
+      });
+  });
+</script>
+
+</head>
+
+<body>
+
+<button id="myButton">Print Hello World</button>
+</br>
+</br>
+<div id="helloWorldDiv"></div>
+
+</body>
+
+</html>
