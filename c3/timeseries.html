@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C3.js Time Series Chart Example</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.18/c3.min.css">
+</head>
+<body>
+  <div id="time-series-chart"></div>
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.18/c3.min.js"></script>
+
+<script>
+// your_timeseries_script.js
+
+// Time series data
+var timeSeriesData = {
+  x: 'x',
+  columns: [
+    ['x',            '2024-01-01', '2024-02-01', '2024-03-01', '2024-04-01', '2024-05-01'],
+    ['Data Series A', 30,          50,           20,           40,           60],
+    ['Data Series B', 15,          25,           10,           30,           45]
+  ],
+  type: 'spline'
+};
+
+// Time series chart options
+var timeSeriesChartOptions = {
+  bindto: '#time-series-chart',
+  data: timeSeriesData,
+  axis: {
+    x: {
+      type: 'timeseries',
+      tick: {
+        format: '%Y-%m-%d'
+      }
+    }
+  },
+  legend: {
+    position: 'right'
+  }
+};
+
+// Generate the time series chart
+var timeSeriesChart = c3.generate(timeSeriesChartOptions);
+
+</script>
+
+</body>
+</html>
+
