@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendar Generator</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+
+<script>
+  function generateCalendar(year, month) {
+    // Get the first day of the month
+    const firstDay = new Date(year, month - 1, 1);
+    
+    // Get the last day of the month
+    const lastDay = new Date(year, month, 0);
+    
+    // Get the number of days in the month
+    const numberOfDays = lastDay.getDate();
+
+    // Get the day of the week for the first day (0 - Sunday, 1 - Monday, ..., 6 - Saturday)
+    let startDayOfWeek = firstDay.getDay();
+
+    // Adjust startDayOfWeek to make Monday (1) the first day of the week
+    startDayOfWeek = (startDayOfWeek + 6) % 7;
+
+    // Create the table
+    const table = document.createElement('table');
+
+    // Create the header row
+    const headerRow = table.insertRow();
+    const daysOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+    for (let day of daysOfWeek) {
+      const th = document.createElement('th');
+      th.textContent = day;
+      headerRow.appendChild(th);
+    }
+
+    // Create the days of the month
+    let currentDay = 1;
+    for (let i = 0; i < 6; i++) {
+      const row = table.insertRow();
+
+      for (let j = 0; j < 7; j++) {
+        const cell = row.insertCell();
+
+        if (i === 0 && j < startDayOfWeek) {
+          // Add empty cells before the first day of the month
+          cell.textContent = '';
+        } else if (currentDay <= numberOfDays) {
+          // Add the current day
+          cell.textContent = currentDay;
+          currentDay++;
+        }
+      }
+    }
+
+    // Append the table to the body
+    document.body.appendChild(table);
+  }
+
+  // Example usage: generateCalendar(2024, 2); // February 2024
+  generateCalendar(2024, 2);
+  generateCalendar(2024, 3);
+</script>
+
+</body>
+</html>
+
